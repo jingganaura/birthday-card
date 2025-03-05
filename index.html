@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 50px auto;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+            background: #ff3b1d;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 15px auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .emoji {
+            font-size: 40px;
+            margin: 10px;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+        .falling {
+            position: fixed;
+            top: -50px;
+            font-size: 30px;
+            animation: fall linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="page1">
+        <h2>HAPPY BDAYYYY JIHAN MALIKA ASYIFA</h2>
+        <div class="emoji">🎂</div>
+        <button class="btn" onclick="nextPage(2); startEffect('🎉')">Ini dipencett jihan</button>
+    </div>
+    
+    <div class="card hidden" id="page2">
+        <h2>I wish you get a long life and please take care of yourself &lt;3</h2>
+        <div class="emoji">🎂</div>
+        <button class="btn" onclick="nextPage(3); startEffect('💸')">Pencet lagi coba yank</button>
+    </div>
+    
+    <div class="card hidden" id="page3">
+        <h2>Hope Allah make it easy for you in every path you take &lt;33</h2>
+        <div class="emoji">🎂</div>
+        <button class="btn" onclick="nextPage(4); startEffect('🔥')">Yank blom slese ini, ayo pencet</button>
+    </div>
+    
+    <div class="card hidden" id="page4">
+        <h2>Yek 20 yekk</h2>
+        <div class="emoji">🎂</div>
+        <button class="btn" onclick="startEffects()">Nah udah abis jii, lafyu ji</button>
+    </div>
+
+    <script>
+        function nextPage(page) {
+            document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+            document.getElementById(`page${page}`).classList.remove('hidden');
+        }
+
+        function startEffects() {
+            nextPage(4);
+            for (let i = 0; i < 20; i++) {
+                createFallingEmoji('🔥');
+                createFallingEmoji('❤️');
+            }
+        }
+
+        function startEffect(emoji) {
+            for (let i = 0; i < 20; i++) {
+                createFallingEmoji(emoji);
+            }
+        }
+
+        function createFallingEmoji(emoji) {
+            let element = document.createElement('div');
+            element.classList.add('falling');
+            element.innerHTML = emoji;
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(element);
+            setTimeout(() => element.remove(), 5000);
+        }
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
